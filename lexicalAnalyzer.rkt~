@@ -1,0 +1,4 @@
+#lang racket
+(require parser-tools/lex)
+
+(define (summy (2 + 5))
