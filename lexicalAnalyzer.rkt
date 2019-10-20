@@ -39,14 +39,9 @@
           (calc-lexer input-port))]
    
 
-   [#\+
+  [(:or #\+ #\*)
     ; =>
-    (cons '(OP plus) 
-          (calc-lexer input-port))]
-
-    [#\*
-    ; =>
-    (cons '(OP multi) 
+    (cons `(OP ,(string->symbol lexeme))
           (calc-lexer input-port))]
 
      [#\%
@@ -61,4 +56,4 @@
    [(eof)
     '()]))
 
-(calc-lexer (open-input-string "-3 * (2 % 3)"))
+(calc-lexer (open-input-string "2*[6%2]"))
